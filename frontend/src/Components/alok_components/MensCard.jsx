@@ -37,7 +37,7 @@ function MensCard({_id, brand,product, image,description,price,rate,count}) {
     const NewProduct = { ...data.data, quantity: 1 };
 
     axios
-      .post("https://alok-verma-rct.onrender.com/crankdealCart", NewProduct)
+      .post("https://alok-verma-rct.onrender.com", NewProduct)
       .then(() =>
         toast({
           title: "Item Added",
