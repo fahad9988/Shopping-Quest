@@ -1,0 +1,187 @@
+.navbar{
+    display: flex;
+background-color: #131921;
+height: 80px;
+align-items: center;
+justify-content: center;
+min-width: 1040px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+   
+    gap: 30px;
+    margin-left: 20px;
+    width: 140px;
+    margin-top: 1px;
+}
+.addon{
+    margin-left: 250px;
+    margin-top: 10px;
+   height: 45px;
+  
+}
+.input{
+    margin-left: 1px;
+    margin-top: 10px;
+   width:540px;
+   height: 45px;
+   background-color: white;
+   color:black;
+   border: 4px solid #f4b666;
+}
+
+.login{
+color: white;
+margin-right: 20px;
+font-size: 15px;
+width: 200px;
+font-weight: bolder;
+margin-top: 10px;
+}
+.returns{
+    color: white;
+    width: 150px;
+    font-size: 17px;
+    font-weight: 500;
+   margin-right: 60px;
+}
+.cart{
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+   margin-right: 70px;
+   margin-top: -10px;
+}
+.drawer{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    background-color: #232f3e;
+    gap: 40px;
+    min-width: 1040px;
+    
+}
+.drawer1{
+    font-size: 24px;
+
+    font-weight: bolder;
+  color: black;
+}
+.p p{
+    font-size: 17px;
+    font-weight: bolder;
+    color: balc;
+}
+.link1{
+color: #fff;
+font-size: 18px;
+font-weight: 400;
+margin-left:60px ;
+}
+.link2{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+  
+    }
+    .link3{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+      
+        }
+        
+.btton{
+           background-color: #232f3e;
+            color: white;
+            background-color: #232f3e;
+        }
+       
+        .link4{
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+          
+        }
+        .link5{
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+          
+        }
+        .link6{
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+          
+        }
+        .link7{
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+          
+        }
+        .link8{
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+          
+        }
+        @media  screen and (max-width:1020px) {
+            .logo{
+                margin-left: 50px;
+               
+            }
+       
+            .login{
+                color: white;
+                margin-right: 20px;
+                font-size: 12px;
+                width: 400px;
+                font-weight: bolder;
+                margin-top: 10px;
+                }
+                .returns{
+                    color: white;
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 500;
+                   margin-right: 60px;
+                }
+                .input{
+                    width: 540px;
+                }
+                .cart{
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 500;
+                   margin-right: 100px;
+                   margin-top:0px;
+                }
+        }
+        @media  screen and  (max-width: 720px){
+           
+            .login{
+                color: white;
+                margin-right: 20px;
+                font-size: 12px;
+                width: 400px;
+                font-weight: bolder;
+                margin-top: 10px;
+                }
+                .returns{
+                    color: white;
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 500;
+                   margin-right: 60px;
+                }
+                .cart{
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 500;
+                   margin-right: 70px;
+                   margin-top:0px;
+                }
+        }
