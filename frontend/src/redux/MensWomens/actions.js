@@ -1,12 +1,12 @@
 import * as types from "./actionType"
 import axios from "axios"
-export const getMensData=(sort)=>async(dispatch)=>{
+export const getMensData=(search)=>async(dispatch)=>{
 
     dispatch({type:types.GET_MENS_REQUEST})
 
 
     try {
-       let r= await axios.get(`https://navy-blue-colt-slip.cyclic.app/men?_sort=price&_order=${sort}`)
+       let r= await axios.get(`https://navy-blue-colt-slip.cyclic.app/men/search?brand=${search}`,)
        
        dispatch({type:types.GET_MENS_SUCCESS,payload:r.data})
     } catch (e) {
