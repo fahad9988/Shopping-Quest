@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import AllRoutes from './AllRoutes/AllRoutes';
-//import AdminPage from "./Pages/AdminPage/Dashboard"
+//import {AdminPage} from "./Pages/AdminPage/AdminPage";
 
 function App() {
   return (
