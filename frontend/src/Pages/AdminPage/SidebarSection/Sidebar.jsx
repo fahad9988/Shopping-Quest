@@ -1,16 +1,13 @@
 import React from "react";
 import "./sidebar.css";
-import logo from "../SidebarSection/WebsiteLogo.png"
+import logo from "../SidebarSection/WebsiteLogo.png";
 import { RxDashboard } from "react-icons/rx";
-import {FaUsers,FaCartArrowDown} from "react-icons/fa";
-import {GiMoneyStack} from "react-icons/gi"
-import { BsCreditCard2Front, BsQuestionCircle, BsTrophy } from "react-icons/bs";
-import {
-  MdOutlineExplore,
-  MdOutlinePermContactCalendar,
-} from "react-icons/md";
+import { FaUsers, FaCartArrowDown } from "react-icons/fa";
+import { GiMoneyStack } from "react-icons/gi";
+import { BsCreditCard2Front, BsQuestionCircle, BsTrophy,BsFillCartFill } from "react-icons/bs";
+import { MdOutlineExplore, MdOutlinePermContactCalendar } from "react-icons/md";
 import { AiOutlinePieChart } from "react-icons/ai";
-import { BiTrendingUp } from "react-icons/bi";
+import { BiTrendingUp,BiLogOut } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -26,19 +23,33 @@ const Sidebar = () => {
           <li className="listItem">
             <Link to="/adminpage" className="menuLink flex">
               <RxDashboard className="icon" />
-              <span className="smallText">Dashboard</span>
+              <span className="smallText">
+                <Link to="/admin">Dashboard</Link>
+              </span>
             </Link>
           </li>
           <li className="listItem">
             <Link to="/adminteam" className="menuLink flex">
               <FaUsers className="icon" />
-              <span className="smallText">Users</span>
+              <span className="smallText">
+                <Link to="/adminusers">Users</Link>
+              </span>
             </Link>
           </li>
           <li className="listItem">
             <Link to="/adminproducts" className="menuLink flex">
               <FaCartArrowDown className="icon" />
-              <span className="smallText">Products</span>
+              <span className="smallText">
+                <Link to="/adminproducts">Products</Link>
+              </span>
+            </Link>
+          </li>
+          <li className="listItem">
+            <Link to="/adminproducts" className="menuLink flex">
+              <BsFillCartFill className="icon" />
+              <span className="smallText">
+                <Link to="/productsorder">Orders</Link>
+              </span>
             </Link>
           </li>
           <li className="listItem">
@@ -75,6 +86,13 @@ const Sidebar = () => {
             <a href="#" className="menuLink flex">
               <BsCreditCard2Front className="icon" />
               <span className="smallText">Billing</span>
+            </a>
+          </li>
+
+          <li className="listItem">
+            <a href="#" className="menuLink flex">
+              <BiLogOut className="icon" />
+              <span style={{color:"red"}} className="smallText"><Link to="/loginadmin">Logout</Link></span>
             </a>
           </li>
         </ul>
