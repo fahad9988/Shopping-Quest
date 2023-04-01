@@ -9,8 +9,8 @@ import Navabr from './Components/KamranComponent/Navabr';
 function App() {
   return (
     <div className="App">
-     <Navabr/>
-    <AllRoutes/>
+     <Navabr/>     
+     <AllRoutes />
      <Footer/>
     </div>
   );
