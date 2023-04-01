@@ -10,7 +10,8 @@ function App() {
   return (
     <div className="App">
      <Navabr/>
-     <Homepage/>
+     
+     <AllRoutes />
      <Footer/>
     </div>
   );
