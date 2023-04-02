@@ -60,6 +60,7 @@ const navigate=useNavigate()
       setLoad(false)
       localStorage.setItem('token',JSON.stringify(res.data.token))
       localStorage.setItem('name',JSON.stringify(res.data.user_details.name))
+      navigate("/");
 
       
     }else{

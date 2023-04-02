@@ -1,4 +1,4 @@
-import { Box,Image, Input, InputGroup, InputLeftAddon } from '@chakra-ui/react'
+import { Box,Image, Input, InputGroup, InputLeftAddon, Text } from '@chakra-ui/react'
 import React from 'react'
 import {SearchIcon,HamburgerIcon} from "@chakra-ui/icons"
 
@@ -18,8 +18,9 @@ import { Link } from 'react-router-dom'
 import style from "../../Style/Navbar.module.css"
 const Navabr = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [placement, setPlacement] = React.useState('left')
-  
+    const [placement, setPlacement] = React.useState('left');
+
+    
   return (
     <div>
       <Box className={style.navbar}>
@@ -34,13 +35,16 @@ const Navabr = () => {
     <Input className={style.input} type='text' placeholder='Search Amazon.in'  backgroundColor="white" border="4px solid #f4b666" />
   <SearchIcon className={style.search}/>
   </InputGroup>
-  
-      <Link to="/login" className={style.login} >
-     Hello sign in
-      Account & List
-      </Link>
-      <Link to="/return" className={style.returns}>Return & orders</Link>
-      <Link className={style.cart} to="/cart">Cart</Link>
+  {false?<Text className={style.login} >
+    { `Hi!`}
+      </Text>:
+       <Link to="/login" className={style.login} >
+       Hello sign in
+        Account & List
+        </Link>}
+     {false?<Text  className={style.login} _hover={{textDecoration:"underline",cursor:"pointer"}}>Logout</Text>:<Link to="/return" className={style.login}>Return & orders</Link>}
+      
+      <Link className={style.login} to="/cart">Cart</Link>
       </Box>
       <Box className={style.drawer}>
       
