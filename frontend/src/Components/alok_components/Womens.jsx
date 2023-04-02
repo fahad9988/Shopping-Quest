@@ -1,12 +1,14 @@
 import React, { useEffect ,useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import { getMensData } from '../../redux/MensWomens/actions'
+import { getMensData, getWomenData } from '../../redux/MensWomens/actions'
 import { Flex,Box,Grid, GridItem,SimpleGrid,VStack,HStack, Center, CheckboxGroup, Stack, Checkbox, Heading } from '@chakra-ui/react'
 import MensCard from './MensCard'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import FilterandSort from './FilterandSort'
 import Pagination from './Pagination'
-const Mens = () => {
+import WomenCard from './WomensCard'
+import FilterWomen from './FilterWomen'
+const Womens = () => {
    const [brand,setBrand]=useState([])
    const [page,setPage]=useState(Number(1))
    const [val,setVal]=useState(true)
@@ -18,41 +20,37 @@ const Mens = () => {
     //const navigate=useNavigate()
     const [searchParams]=useSearchParams()
     
-console.log("products",products)
 
     useEffect(()=>{
 
       
 
-       if(location || products.length===0){
-        const queryParams={
-          params:{
-              brand:searchParams.get("brand")
-          }
-          
-        }
-        dispatch(getMensData(queryParams))
-      }
-      
-    },[location.search])
+      if(location || products.length===0){
+       const queryParams={
+         params:{
+             brand:searchParams.get("brand")
+         }
+         
+       }
+       dispatch(getWomenData(queryParams))
+     }
+     
+   },[location.search])
 
-    
-  
+ 
 
   return (
     <>
     <Flex style={{justifyContent:"space-between",alignItems:"flex-start",marginTop:"20px",margin:"3%"}}>
-
-
-      <FilterandSort />
-      
-    
+        
      
+  
+  <FilterWomen />
+
+  
+      
       <Box width="75%"  m="auto"  justifyContent="center">
 <SimpleGrid minChildWidth={250}   > 
-       
-
-
 {products && products.filter((_,index)=>{
   return(
     index>=perPage*(activePage-1)&&
@@ -60,7 +58,7 @@ console.log("products",products)
   );
 })
 .map((item)=>{
-  return <MensCard  key={item._id} {...item}  />
+  return <WomenCard  key={item._id} {...item}  />
 })
 }
 </SimpleGrid>
@@ -73,4 +71,4 @@ console.log("products",products)
   )
 }
 
-export default Mens
+export default Womens

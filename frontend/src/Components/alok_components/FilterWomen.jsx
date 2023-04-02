@@ -2,7 +2,7 @@ import { Box, Checkbox, CheckboxGroup, Heading, Stack } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-const FilterandSort = () => {
+const FilterWomen = () => {
     const [searchParams,setSearchParams]=useSearchParams()
  
     const [category,setCategory]=useState(searchParams.getAll("brand"))
@@ -52,25 +52,25 @@ const FilterandSort = () => {
           <input 
           
           type="checkbox"
-          value="Dennis Lingo"
-          defaultChecked={category.includes("Dennis Lingo")}
+          value="Azira"
+          defaultChecked={category.includes("Azira")}
           onChange={handleFilter}
           style={{marginRight:"2px"}}
           />
-          Dennis Lingo</label>
+          Azira</label>
         </div>
 
         <div style={{textAlign:"left"}}   >
      <label>
-       <input type="checkbox" id="sports" name="interest" value="Louis Philippe Sport"  defaultChecked={category.includes("Louis Philippe Sport")} onChange={handleFilter} style={{marginRight:"2px"}}/>
-       Louis Philippe Sport
+       <input type="checkbox" id="sports" name="interest" value="Libas"  defaultChecked={category.includes("Libas")} onChange={handleFilter} style={{marginRight:"2px"}}/>
+       Libas
      </label>
     </div>
 
      <div style={{textAlign:"left"}}  >
      <label>
-       <input type="checkbox" id="sports" name="interest" value="HIGHLANDER" defaultChecked={category.includes("HIGHLANDER")} onChange={handleFilter} style={{marginRight:"2px"}}/>
-       HIGHLANDER
+       <input type="checkbox" id="sports" name="interest" value="FableStreet" defaultChecked={category.includes("FableStreet")} onChange={handleFilter} style={{marginRight:"2px"}}/>
+       FableStreet
      </label>
    </div>
 
@@ -145,26 +145,10 @@ const FilterandSort = () => {
      </label>
    </div>
 
-   <div style={{textAlign:"left"}}  >
-     <label>
-       <input type="checkbox" id="sports" name="interest" value="WROGN" defaultChecked={category.includes("WROGN")} onChange={handleFilter} style={{marginRight:"2px"}}/>
-       WROGN
-     </label>
-   </div>
-   
-
-   <div style={{textAlign:"left"}}  >
-     <label>
-       <input type="checkbox" id="sports" name="interest" value="LOCOMOTIVE
-"  defaultChecked={category.includes("LOCOMOTIVE")} onChange={handleFilter} style={{marginRight:"2px"}} />
-       LOCOMOTIVE
-
-     </label>
-   </div>
       </div>
       </div>
    </div>
   )
 }
 
-export default FilterandSort
+export default FilterWomen
