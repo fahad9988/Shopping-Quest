@@ -13,7 +13,7 @@ import {
   
 } from '@chakra-ui/react'
 import './newaccount.css'
-
+import axios from 'axios'
 import { useState } from 'react'
 import { useContext } from "react";
 
