@@ -13,20 +13,21 @@ import {
   
 } from '@chakra-ui/react'
 import './newaccount.css'
-
+import axios from 'axios'
 import { useState } from 'react'
 import { useContext } from "react";
 
 
 import { Link, Navigate } from 'react-router-dom'
-
+const intialState={
+  email:"",
+  password:""
+}
 
 
 export const Login = () => {
   let Login = {};
-  const [user, setUser] = useState({
-       email: '', password: ''
-    })
+  const [user, setUser] = useState(intialState)
     const[load,setLoad]=useState(false)
     const toast =useToast()
 
@@ -42,49 +43,33 @@ export const Login = () => {
 
     const handleClic=()=>{
       setLoad(true)
-      setTimeout(()=>{
-      let flag = false;
-      let loginData = JSON.parse(localStorage.getItem("dataSignup"));
-      for(let i=0; i<loginData.length; i++){
-          if(loginData[i].email==user.email && loginData[i].password==user.password){
-                  flag = true;
-                  let name = loginData[i].name
-                  Login={
-                      name,
-                  };
-                  localStorage.setItem("dataLogin",JSON.stringify(Login))
-              }
-          }
-      if(flag){
-          setLoad(false)
-    
-          toast({
-              title: 'Login Succesful.',
-              
-              status: 'success',
-              duration: 4000,
-              isClosable: true,
-            })
-      }else{
-          setLoad(false)
-          toast({
-              title: 'Wrong Credentials.',
-             
-              position:'top',
-              status:"error",
-              duration: 4000,
-              isClosable: true,
-            })
-      }
-  },1000)
- 
+      axios.post('https://navy-blue-colt-slip.cyclic.app/user/login',user).then(res=>{
+
+      toast({
+        title: 'Login Succesfull.',
+     
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      })
+      setLoad(false)
+      localStorage.setItem('token',JSON.stringify(res.data.token))
+
+      }).catch(err=>{
+        toast({
+          title: 'Login Failed.',
+          description:`${err.response.data.msg}`,
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+        setLoad(false)
+
+
+      })
+
 
     }
-
-  
-    let data = JSON.parse(localStorage.getItem("dataLogin"))
-
-
 
   return (
     <div>

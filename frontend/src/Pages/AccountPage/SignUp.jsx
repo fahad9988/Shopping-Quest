@@ -1,7 +1,8 @@
 import './newaccount.css'
 import { useState } from 'react'
 import { Button } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios  from 'axios'
 import {
   FormControl,
   FormLabel,
@@ -14,16 +15,22 @@ import {
 
 } from '@chakra-ui/react'
 
+const initialState = {
+  name: "",
+  email: "",
+  password: "",
+  number: ""
+}
+
 export default function NewAccount() {
-  let Data = JSON.parse(localStorage.getItem("dataSignup"))||[];
+
   const [erroi, setErr] = useState(false)
   const [focus, setFocus] = useState(false)
 
   const toast = useToast()
+  const navigate=useNavigate()
 
-  const [user, setUser] = useState({
-    name: '', email: '', password: '',number:""
-  })
+  const [user, setUser] = useState(initialState)
   let nam, val
   const handleInputChange = (e) => {
     e.preventDefault()
@@ -36,30 +43,44 @@ export default function NewAccount() {
   const handleClick = () => {
     
     setFocus(true)
-    setTimeout(()=>{
+  
       
-    if (user.name === "" || user.email === "" || user.password === "") {
+    if (user.name === "" && user.email === "" && user.password === ""&& user.number==="") {
       setErr(true)
       setFocus(false)
+      alert("Please Fill The details")
     
-    } else {
-      toast({
-        title: 'Account created.',
-        description: "We've created your account for you.",
-        status: 'success',
-        duration: 4000,
-        isClosable: true,
-      })
-      Data.push(user);
-      localStorage.setItem("dataSignup",JSON.stringify(Data))
-      setFocus(false)
+    }else{ axios.post(`https://navy-blue-colt-slip.cyclic.app/user/register`, user).then(res=>{
+      console.log(res);
+      
+          {
+          toast({
+              title: 'User Registration Successful',
+              position: 'top',
+              status: 'success',
+              description: `${res.data.msg}`,
+            })
+            setFocus(false)
+            navigate("/login");
+            setUser(initialState);
+      }
+      
+
+  }).catch(error=> {
+    console.log(error)
+    toast({
+      title: 'User Registration Failed',
+      position: 'top',
+      status:"error",
+      description: `${error.response.data.msg}`,
+    })
+    setFocus(false)
+    setUser(initialState);
+    return ;
+  }
+    );
   
     }
-    
-  },1000)
-  
-
-
   }
 
 
