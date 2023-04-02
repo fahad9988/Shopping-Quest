@@ -10,10 +10,13 @@ import Cart from './Pages/Cart/Cart';
 function App() {
   return (
     <div className="App">
-     {/* <Navabr/>
-    <AllRoutes/>
-     <Footer/> */}
-     <Cart/>
+
+   
+
+     <Navabr/>     
+     <AllRoutes />
+     <Footer/>
+
     </div>
   );
 }

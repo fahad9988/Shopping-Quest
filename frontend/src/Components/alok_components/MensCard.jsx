@@ -32,12 +32,12 @@ function MensCard({_id, brand,product, image,description,price,rate,count}) {
 
   const AddToCartItem = async (id) => {
     let data = await axios.get(
-      `https://alok-verma-rct.onrender.com/beautyface/${id}`
+      `https://navy-blue-colt-slip.cyclic.app/men/${_id}`
     );
     const NewProduct = { ...data.data, quantity: 1 };
 
     axios
-      .post("https://alok-verma-rct.onrender.com", NewProduct)
+      .post("https://navy-blue-colt-slip.cyclic.app/men", NewProduct)
       .then(() =>
         toast({
           title: "Item Added",
@@ -68,7 +68,7 @@ function MensCard({_id, brand,product, image,description,price,rate,count}) {
               position="absolute"
               top={2}
               right={2}
-              bg="red.200"
+              
             />
           )}        <Image
             src={image}
@@ -87,7 +87,7 @@ function MensCard({_id, brand,product, image,description,price,rate,count}) {
             {/* </Box> */}
             <Flex mt="1" justifyContent="space-between" alignContent="center">
               <Box
-                fontSize="2xl"
+                fontSize="xl"
                 fontWeight="semibold"
                 as="h4"
                 lineHeight="tight"
@@ -113,7 +113,7 @@ function MensCard({_id, brand,product, image,description,price,rate,count}) {
             </Flex>          <Flex justifyContent="space-between" alignContent="center" >
               {/* <Rating rating={rate} numReviews={data.numReviews} display={"flex"} /> */}
               <Box display="flex"  gap={5} fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                <Box display="flex" gap={5}>
+                <Box display="flex" gap={2}>
                 <Box as="span" color={'gray.600'} fontSize="lg">
                   ₹ 
                 </Box>
@@ -121,7 +121,7 @@ function MensCard({_id, brand,product, image,description,price,rate,count}) {
                 {price}
                 </Box>
                 </Box>
-                <Box color={'#4D4530'} >
+                <Box fontSize={18} color={'#4D4530'} >
                 {brand}
                 </Box>
                 

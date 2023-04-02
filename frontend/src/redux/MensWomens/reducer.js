@@ -3,7 +3,9 @@ import * as types from "./actionType";
 const initialState = {
     products:[],
     loading:false,
-    error:false
+    error:false,
+    activePage: 1,
+    perPage: 40
 }
 
 export const reducer = (state=initialState, {type, payload}) => {
@@ -21,7 +23,8 @@ export const reducer = (state=initialState, {type, payload}) => {
             return {...state,loading:false,products:payload}
         case types.GET_WOMENS_ERROR:
            return{...state,loading:false,error:true}
-
+          case types.HANDLE_PAGE_CHANGE:
+            return {...state,loading:false,activePage:payload}
        
         default:
             return state;
