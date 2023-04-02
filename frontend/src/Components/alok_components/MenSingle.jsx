@@ -27,6 +27,7 @@ const  MenSingle = () => {
   const { id } = useParams();
   const [product, setProducts] = useState([]);
   const toast = useToast();
+  let token=JSON.parse(localStorage.getItem("token"))||"";
   const cartData=useSelector((store)=>{
    return store.cart.data;
   });
@@ -42,26 +43,39 @@ const navigate=useNavigate();
 
   const AddToCartItem = () => {
     console.log("added")
-    const NewProduct = { ...product, quantity: 1 };
+    if(!token){
+      toast({
+        title: 'Please Login First.',
+        description: "You are not authenticated.",
+        status: 'warning',
+        duration: 3000,
+        position:"top",
+        isClosable: true,
+      });
+      navigate("/login");
+    }else{
+      const NewProduct = { ...product, quantity: 1 };
 
-    axios
-      .post("https://navy-blue-colt-slip.cyclic.app/cart", NewProduct,{
-        headers:{
-          authorization:`Bearer ${JSON.parse(localStorage.getItem("token"))}`
-        }
-      })
-      .then((res) =>{
-        toast({
-          title: "Item Added",
-          description: "Item added to cart successfully",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-          position: "top",
-        });
-        console.log(res);}
-      )
-      .catch((err) => console.log(err));
+      axios
+        .post("https://navy-blue-colt-slip.cyclic.app/cart", NewProduct,{
+          headers:{
+            authorization:`Bearer ${JSON.parse(localStorage.getItem("token"))}`
+          }
+        })
+        .then((res) =>{
+          toast({
+            title: "Item Added",
+            description: "Item added to cart successfully",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top",
+          });
+          console.log(res);}
+        )
+        .catch((err) => console.log(err));
+    }
+    
   
   };
 

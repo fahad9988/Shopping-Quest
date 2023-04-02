@@ -5,24 +5,11 @@ import { Box , Flex, Text,Image, Button, Checkbox, Accordion, AccordionItem ,Acc
 import SelectC from '../../Components/fahad_components/SelectC';
 import { getSaveLater,addSaveLater, removeSaveLater } from '../../redux/SaveLater/savelater.actions';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 
 const Cart = () => {
-const toast=useToast();
-  // const token=localStorage.getItem("token")||"";
-  const navigate=useNavigate();
- 
-//   if(token){
-   
-//     toast({
-//       title: 'Please Login First.',
-//       status: 'warning',
-//       duration: 3000,
-//       isClosable: true,
-//     });
-// navigate("/");
-    
-//   }
+  const toast=useToast();
+  let token=JSON.parse(localStorage.getItem("token"))||"";
 
 const cartData=useSelector((store)=>{
   return store.cart.data
@@ -34,9 +21,10 @@ const saveLater=useSelector((store)=>{
 console.log(saveLater)
 
 const dispatch=useDispatch();
-
+const navigate=useNavigate();
 
   React.useEffect(()=>{
+ 
 dispatch(getCart());
 dispatch(getSaveLater());
   },[]);
@@ -69,6 +57,19 @@ dispatch(getSaveLater());
       });
     }
    
+    if(!token){
+   
+      toast({
+        title: 'Please Login First.',
+        description: "You are not authenticated.",
+        status: 'warning',
+        duration: 3000,
+        position:"top",
+        isClosable: true,
+      });
+  return <Navigate to="/login" />
+      
+    }
   
   return (
     <Box p={{xl:"25px 25px" , lg:"15px 15px",base:"0px"}} bgColor={"#EAEDED"} display="flex" gap={{xl:9,lg:6,base:0}} flexDirection={{lg:"row",base:"column"}} >
