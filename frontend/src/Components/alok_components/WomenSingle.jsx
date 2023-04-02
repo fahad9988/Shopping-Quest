@@ -36,7 +36,11 @@ const  WomenSingle = () => {
     const NewProduct = { ...product, quantity: 1 };
 
     axios
-      .post("https://navy-blue-colt-slip.cyclic.app/women", NewProduct)
+      .post("https://navy-blue-colt-slip.cyclic.app/cart", NewProduct,{
+        headers:{
+          authorization:`Bearer ${JSON.parse(localStorage.getItem("token"))}`
+        }
+      })
       .then(() =>
         toast({
           title: "Item Added",

@@ -19,11 +19,19 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { MdLocalShipping } from "react-icons/md";
+import {useSelector,useDispatch} from "react-redux";
+import { getCart } from "../../redux/Cart/cart.actions";
+import {useNavigate} from "react-router-dom";
 
 const  MenSingle = () => {
   const { id } = useParams();
   const [product, setProducts] = useState([]);
   const toast = useToast();
+  const cartData=useSelector((store)=>{
+   return store.cart.data;
+  });
+  const dispatch=useDispatch();
+const navigate=useNavigate();
 
   const FetchIdData = async () => {
     let res = await axios.get(
@@ -37,8 +45,12 @@ const  MenSingle = () => {
     const NewProduct = { ...product, quantity: 1 };
 
     axios
-      .post("https://navy-blue-colt-slip.cyclic.app/men", NewProduct)
-      .then(() =>
+      .post("https://navy-blue-colt-slip.cyclic.app/cart", NewProduct,{
+        headers:{
+          authorization:`Bearer ${JSON.parse(localStorage.getItem("token"))}`
+        }
+      })
+      .then((res) =>{
         toast({
           title: "Item Added",
           description: "Item added to cart successfully",
@@ -46,15 +58,29 @@ const  MenSingle = () => {
           duration: 9000,
           isClosable: true,
           position: "top",
-        })
+        });
+        console.log(res);}
       )
       .catch((err) => console.log(err));
+  
   };
 
   useEffect(() => {
     FetchIdData();
+    dispatch(getCart());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  let exist=false;
+cartData.forEach((e)=>{
+  if(e._id==id){
+ exist=true;
+  }
+});
+
+const GotoCart=()=>{
+navigate("/cart")
+}
 
  // console.log(id)
   return (
@@ -140,23 +166,53 @@ const  MenSingle = () => {
             </Box>
           </Stack>
 
-          <Button
+          {
+            exist?<Button
             rounded={"none"}
             w={"full"}
             mt={8}
             size={"lg"}
             py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
+            backgroundColor="white"
+            borderRadius={"10px"}
+           color="black"
+           border="2px solid black"
             textTransform={"uppercase"}
             _hover={{
               transform: "translateY(2px)",
               boxShadow: "lg",
+              backgroundColor:"black",
+              color:"white",
+
             }}
-            onClick={() => AddToCartItem()}
+            onClick={() => GotoCart()}
           >
-            Add to cart
-          </Button>
+            Go to Cart
+          </Button>:
+          <Button
+          backgroundColor="white"
+          borderRadius={"10px"}
+         color="black"
+         border="2px solid black"
+          rounded={"none"}
+          w={"full"}
+          mt={8}
+          size={"lg"}
+          py={"7"}
+          textTransform={"uppercase"}
+          _hover={{
+            transform: "translateY(2px)",
+            boxShadow: "lg",
+            backgroundColor:"black",
+            color:"white",
+          }}
+          onClick={() => AddToCartItem()}
+        >
+          Add to cart
+        </Button>
+          }
+
+    
 
           <Stack direction="row" alignItems="center" justifyContent={"center"}>
             <MdLocalShipping />
