@@ -26,24 +26,22 @@ import "./Css/hover-glow-shadow.css"
     numReviews: 34,
   };
 
-function MensCard({_id, brand,product, image,description,price,rate,count,discount}) {
+function WomenCard({_id, brand,product, image,description,price,rate,count,discount}) {
   const navigate=useNavigate();
   const toast = useToast();
   const token = JSON.parse(localStorage.getItem(""));
-
   const AddToCartItem = async (id) => {
     let data = await axios.get(
-      `https://navy-blue-colt-slip.cyclic.app/men/${_id}`
+      `https://navy-blue-colt-slip.cyclic.app/women/${_id}`
     );
     const NewProduct = { ...data.data, quantity: 1 };
 
     axios
-      .post("https://navy-blue-colt-slip.cyclic.app/men", NewProduct,{
+      .post("https://navy-blue-colt-slip.cyclic.app/women", NewProduct,{
         headers: {
           Authorization: token.token,
         },
-      }
-    )
+      })
       .then(() =>
         toast({
           title: "Item Added",
@@ -58,7 +56,7 @@ function MensCard({_id, brand,product, image,description,price,rate,count,discou
   };
 
     return (
-      <Link to={`/MenSingle/single/${_id}`}>
+      <Link to={`/WomenSingle/single/${_id}`}>
       <Flex p={4} margin="auto" w="fit-content" alignItems="center" justifyContent="center" className="hvr-grow-shadow">
         <Box
           bg={useColorModeValue('white', 'gray.800')}
@@ -158,4 +156,4 @@ function MensCard({_id, brand,product, image,description,price,rate,count,discou
       </Flex>
      </Link>
     );
-  }export default MensCard;
+  }export default WomenCard;
