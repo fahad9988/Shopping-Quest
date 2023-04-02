@@ -34,12 +34,15 @@
   font-weight: 500;
 }
 .topSection .headerSection .adminsearchBar {
-  padding: 0.8rem 3rem 0.8rem 2rem;
+  width: 40%;
+  padding: 0.7rem;
   background: var(--whiteColor);
   border-radius: 5px;
   gap: 1rem;
 }
 .topSection .headerSection .adminsearchBar .adminSearchInput {
+  width: 200px;
+  padding: 2px;
   border: none;
   outline: none;
   background: none;
@@ -47,14 +50,14 @@
 .topSection .headerSection .adminsearchBtn {
   position: relative;
   background: linear-gradient(0deg, #ff934b 0%, #ff5e62 100%);
-  padding: 0.85rem 1.5rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 5px;
   border: none;
   outline: none;
   color: var(--whiteColor);
   font-weight: 700;
   font-size: var(--normalFontSize);
-  right: 4rem;
+  right: 2rem;
 }
 .topSection .headerSection .adminsearchBtn{
   cursor: pointer;
