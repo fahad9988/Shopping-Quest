@@ -7,7 +7,6 @@ import { getSaveLater,addSaveLater, removeSaveLater } from '../../redux/SaveLate
 import axios from 'axios';
 
 const Cart = () => {
-const [total,setTotal]=React.useState(0);
 
 const cartData=useSelector((store)=>{
   return store.cart.data
