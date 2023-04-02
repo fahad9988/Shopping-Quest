@@ -137,9 +137,11 @@ export default function NewAccount() {
         <Button onClick={handleClick} isLoading={focus} loadingText="Submitting" colorScheme="pink" variant="outline" style={{marginTop:'20px'}}>Sign Up</Button>
     <br />
     <Link>
-    Already logged in ? <Link to='/login' style={{color:'blue'}}>Login</Link>
+    Already registerd? <Link to='/login' style={{color:'blue'}}>Login</Link>
     </Link>
-    <div style={{fontSize:"12px"}}>By Creating an account,you agree to <br /> <span style={{color:'green'}}>terms and condition</span>,the payroll and our privacy policy</div>
+    <br />
+  
+    <div style={{fontSize:"12px"}}>By Creating an account,you agree to <br /> <span style={{color:'green'}}>terms and condition</span> and our privacy policy</div>
     </FormControl>
         </div>
   
