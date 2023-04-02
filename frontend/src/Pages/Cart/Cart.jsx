@@ -14,7 +14,7 @@ const Cart = () => {
 const cartData=useSelector((store)=>{
   return store.cart.data
 });
-
+console.log(cartData)
 const saveLater=useSelector((store)=>{
   return store.saveLater.data
 })
@@ -46,7 +46,7 @@ dispatch(getSaveLater());
    
 
     const handleCheckout=()=>{
-      axios.post(`http://localhost:4500/api/stripe/create-checkout-session`,{
+      axios.post(`https://good-red-salmon-robe.cyclic.app/api/stripe/create-checkout-session`,{
         cartData
       }).then((res)=>{
         if(res.data.url){
