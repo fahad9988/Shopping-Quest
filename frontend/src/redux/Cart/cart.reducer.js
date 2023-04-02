@@ -17,7 +17,7 @@ export const cartReducer = (state = InitalState,{type,payload}) => {
     };
     case REMOVE_CART_ITEMS_SUCCESS:
       let deleted=state.data.filter((item)=>{
-        return item.id!=payload
+        return item._id!=payload
       })
     return{
 ...state,
@@ -25,7 +25,7 @@ data:deleted
     };
     case UPDATE_CART_ITEMS_SUCCESS:
       let updated=state.data.map((item)=>{
-      return item.id==payload.id?{...payload}:item
+      return item._id==payload._id?{...payload}:item
     })
   return{
 ...state,

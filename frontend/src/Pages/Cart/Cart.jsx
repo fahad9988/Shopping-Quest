@@ -1,13 +1,28 @@
 import React from 'react';
 import {useSelector,useDispatch} from "react-redux";
 import { addCart, getCart,removeCart } from '../../redux/Cart/cart.actions';
-import { Box , Flex, Text,Image, Button, Checkbox, Accordion, AccordionItem ,AccordionButton, AccordionPanel, AccordionIcon, GridItem, Grid, HStack} from '@chakra-ui/react';
+import { Box , Flex, Text,Image, Button, Checkbox, Accordion, AccordionItem ,AccordionButton, AccordionPanel, AccordionIcon, GridItem, Grid, HStack, useToast} from '@chakra-ui/react';
 import SelectC from '../../Components/fahad_components/SelectC';
 import { getSaveLater,addSaveLater, removeSaveLater } from '../../redux/SaveLater/savelater.actions';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+const toast=useToast();
+  // const token=localStorage.getItem("token")||"";
+  const navigate=useNavigate();
+ 
+//   if(token){
+   
+//     toast({
+//       title: 'Please Login First.',
+//       status: 'warning',
+//       duration: 3000,
+//       isClosable: true,
+//     });
+// navigate("/");
+    
+//   }
 
 const cartData=useSelector((store)=>{
   return store.cart.data
@@ -16,10 +31,10 @@ const cartData=useSelector((store)=>{
 const saveLater=useSelector((store)=>{
   return store.saveLater.data
 })
-console.log(saveLater);
+console.log(saveLater)
 
 const dispatch=useDispatch();
-const navigate=useNavigate();
+
 
   React.useEffect(()=>{
 dispatch(getCart());
@@ -27,15 +42,20 @@ dispatch(getSaveLater());
   },[]);
 
   let qSum=0;
-  cartData.forEach((e)=>{
-    qSum=qSum+Number(e.quantity);
-  });
+   cartData.forEach((e)=>{
+      qSum=qSum+Number(e.quantity);
+    });
+  
+ 
 
  
     let sum=0;
-    cartData.forEach((e)=>{
-      sum=sum+(e.quantity)*(e.price);
-    });
+ 
+      cartData.forEach((e)=>{
+        sum=sum+(e.quantity)*(e.price);
+      });
+    
+   
 
     const handleCheckout=()=>{
       axios.post(`http://localhost:4500/api/stripe/create-checkout-session`,{
@@ -127,13 +147,13 @@ dispatch(getSaveLater());
             <Box  display={"flex"}  alignItems={"center"}>
               <Box p="0px 10px" borderLeft="1px solid green">
                 <Text  m="0px" w="100%" _hover={{cursor:"pointer",textDecoration:"underline"}} fontSize={"xs"} fontWeight={500} color={"#637E85"} onClick={()=>{
-                  dispatch(removeCart(item.id))
+                  dispatch(removeCart(item._id))
                 }} >Delete</Text>
               </Box>
               <Box p="0px 10px" borderLeft="1px solid green">
                 <Text  m="0px" w="100%" _hover={{cursor:"pointer",textDecoration:"underline"}} fontSize={"xs"} fontWeight={500} color={"#637E85"} onClick={()=>{
                   dispatch(addSaveLater(item));
-                  dispatch(removeCart(item.id))
+                  dispatch(removeCart(item._id))
                 }}>
                   Save for Later</Text>
               </Box>
@@ -197,10 +217,10 @@ dispatch(getSaveLater());
          <Text  m="0px" w="100%" mt="2px" mb="3px" fontSize={"sm"} color="#239ED2" textAlign="left" fontWeight={800}>✔prime</Text>
          <Button bgColor={"white"} border="1px solid black" _hover={{bgColor:"black",color:"white"}} size="xs" w="100%" onClick={()=>{
           dispatch(addCart(item));
-          dispatch(removeSaveLater(item.id))
+          dispatch(removeSaveLater(item._id))
          }}>Move to Cart</Button>
          <Text  m="0px" w="100%" textAlign={"left"} _hover={{cursor:"pointer",textDecoration:"underline"}} fontSize={"xs"} fontWeight={500} color={"#637E85"} mt="5px" onClick={()=>{
-                  dispatch(removeSaveLater(item.id))
+                  dispatch(removeSaveLater(item._id))
                 }} >Delete</Text>
          </GridItem>
      })

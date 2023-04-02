@@ -17,7 +17,7 @@ export const saveLaterReducer = (state = InitalState,{type,payload}) => {
     };
     case REMOVE_SAVE_LATER_ITEMS_SUCCESS:
       let deleted=state.data.filter((item)=>{
-        return item.id!=payload
+        return item._id!=payload
       })
     return{
 ...state,

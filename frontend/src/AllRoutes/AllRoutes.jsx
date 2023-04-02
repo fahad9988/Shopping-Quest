@@ -18,6 +18,8 @@ import AdminProducts from "../Pages/AdminPage/AdminProducts";
 import LoginAdmin from "../Pages/LoginAdmin/LoginAdmin";
 import PrivateRouteAdmin from "../Pages/AdminPage/PrivateRoute/PrivateRouteAdmin";
 import ProductOrder from "../Pages/AdminPage/Order";
+import Cart from "../Pages/Cart/Cart";
+import Success from "../Components/fahad_components/Success";
 
 
 const AllRoutes = () => {
@@ -28,14 +30,12 @@ const AllRoutes = () => {
        <Route path='/'  element={<Homepage  />}  />
        <Route path='/men'  element={<Mens  />}  />
        <Route path='/women'  element={<Womens  />}  />
-       <Route path='/women' />
-       <Route path='/kids'    />
-       <Route path='/cart'    />
+       <Route path='/cart' element={<Cart/>}   />
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<NewAccount/>}></Route>
        <Route path="/MenSingle/single/:id" element={<MenSingle />} />
        <Route path="/WomenSingle/single/:id" element={<WomenSingle />} />
-
+       <Route path="/successpage" element={<Success />} />
 
         {/* Admin Routing Starts From here */}
 

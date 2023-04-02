@@ -10,7 +10,7 @@ const SelectC = (props) => {
   return (
     <div>
      <Select  value={quant} onChange={(e)=>{setQuant(e.target.value)
-    dispatch(updateCart(props.id,{...props,quantity:Number(e.target.value)}))
+    dispatch(updateCart(props._id,{...props,quantity:Number(e.target.value)}))
     }} size="sm"  backgroundColor={"#F0F2F2"} border={"1px solid #D0D4D4"} borderRadius={"5px"}   focusBorderColor="#637E85" >
         <option value={1}>{"Qty: 1"}</option>
         <option value={2}>{"Qty: 2"}</option>
