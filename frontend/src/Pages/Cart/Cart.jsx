@@ -4,7 +4,7 @@ import { addCart, getCart,removeCart } from '../../redux/Cart/cart.actions';
 import { Box , Flex, Text,Image, Button, Checkbox, Accordion, AccordionItem ,AccordionButton, AccordionPanel, AccordionIcon, GridItem, Grid, HStack, Tag, Heading} from '@chakra-ui/react';
 import SelectC from '../../Components/fahad_components/SelectC';
 import { getSaveLater,addSaveLater, removeSaveLater } from '../../redux/SaveLater/savelater.actions';
-import {StarIcon} from "@chakra-ui/icons"
+import axios from 'axios';
 
 const Cart = () => {
 const [total,setTotal]=React.useState(0);
@@ -35,21 +35,35 @@ dispatch(getSaveLater());
     cartData.forEach((e)=>{
       sum=sum+(e.quantity)*(e.price);
     });
+
+    const handleCheckout=()=>{
+      axios.post(`http://localhost:4500/api/stripe/create-checkout-session`,{
+        cartData
+      }).then((res)=>{
+        if(res.data.url){
+          window.location.href=res.data.url;
+        }
+      }).catch((err)=>{
+        console.log(err.message)
+      });
+    }
    
   
   return (
     <Box p="25px 25px" bgColor={"#EAEDED"} display="flex" gap={9}>
 
       <Box flex="1">
+
       <Box bgColor={"white"} p="15px 15px" flex="1" >
       <Box>
         <Text textAlign={"left"} fontSize={"3xl"} fontWeight={500}>Shopping Cart</Text>
       </Box>
-      <Box display={"flex"} justifyContent="flex-end" >
-        <Text>Price</Text>
-      </Box>
+      {cartData.length>0?<Box display={"flex"} justifyContent="flex-end" >
+       <Text>Price</Text>
+     </Box>:
+     null}
       <Box>
-      {cartData.map((item)=>{
+      {cartData.length>0?cartData.map((item)=>{
            return <Flex p="20px 0px 20px 10px"   direction={{sm:"row",base:"column"}}  borderTop={"1px solid #DDDDDD"} >
            <Box   flex="0.23" display="flex" alignItems="center" >
             <Image m="auto" minW="125px" h="175px" objectFit="cover" src={item.image} />
@@ -95,13 +109,14 @@ dispatch(getSaveLater());
            
         </Box>
       </Flex>
-    })}
+    }):<Text fontSize={"2xl"} fontWeight={600}>No Items Saved in your Cart!</Text>}
       </Box>
-      <Box>
+      {cartData.length>0? <Box>
       <Text textAlign={"right"} fontSize={"lg"} fontWeight={500}>{`Subtotal (${qSum} items): `}<span style={{fontWeight:700}}>{`Rs. ${sum}`}</span>
        </Text>
+      </Box>:null}
       </Box>
-     </Box>
+
      <Box mt="20px" p="15px 15px"  bgColor={"white"}>
      
      <Box>
@@ -158,6 +173,7 @@ dispatch(getSaveLater());
      
      </Box>
      </Box>
+
       </Box>
      
     
@@ -169,7 +185,11 @@ dispatch(getSaveLater());
        <Box textAlign={"left"}>
           <Checkbox iconColor='black' size="sm">This will be a gift</Checkbox>
           </Box>
-          <Button mt="10px" w="100%" size="sm" bgColor="#FFD814" _hover={{bgColor:"black",color:"white"}}>Proceed to Buy</Button>
+          {cartData.length>0?
+          <Button mt="10px" w="100%" size="sm" bgColor="#FFD814" _hover={{bgColor:"black",color:"white"}} onClick={handleCheckout}>Proceed to Buy</Button>
+          :
+          <Button mt="10px" w="100%" size="sm" bgColor="#FFD814" _hover={{bgColor:"black",color:"white"}}>Continue Shopping</Button>}
+          
 
           <Accordion allowToggle mt="20px">
   <AccordionItem>
