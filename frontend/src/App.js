@@ -5,13 +5,15 @@ import AllRoutes from './AllRoutes/AllRoutes';
 import Footer from "./Components/KamranComponent/Footer"
 import Homepage from "./Components/KamranComponent/Homepage"
 import Navabr from './Components/KamranComponent/Navabr';
+import Cart from './Pages/Cart/Cart';
 
 function App() {
   return (
     <div className="App">
-     <Navabr/>
+     {/* <Navabr/>
     <AllRoutes/>
-     <Footer/>
+     <Footer/> */}
+     <Cart/>
     </div>
   );
 }

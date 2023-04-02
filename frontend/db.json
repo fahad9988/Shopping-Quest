@@ -1,0 +1,25 @@
+{
+  "Cart": [
+    {
+      "id": "6423e5fefbbc31a2d3992064",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/21197968/2023/1/10/a79d5191-422f-41b8-97f5-a4d21261f4091673327136520-Louis-Philippe-Sport-Men-Shirts-4351673327135961-1.jpg",
+      "brand": "Louis Philippe Sport",
+      "product": "Men Pure Cotton Slim Fit Shirt",
+      "price": 1319,
+      "strike": 2199,
+      "discount": "40% OFF",
+      "quantity": 2
+    },
+    {
+      "id": "6423e5fefbbc31a2d399202d",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11904108/2020/7/14/869203dc-200a-4284-9d2d-a06fd5ea582d1594707585600-Roadster-Men-Shirts-1041594707583386-1.jpg",
+      "brand": "Roadster",
+      "product": "Cotton Casual Shirt",
+      "price": 649,
+      "strike": 999,
+      "discount": "35% OFF",
+      "quantity": 2
+    }
+  ],
+  "SaveLater": []
+}
