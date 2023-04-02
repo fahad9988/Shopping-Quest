@@ -1,7 +1,8 @@
 import './newaccount.css'
 import { useState } from 'react'
 import { Button } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios  from 'axios'
 import {
   FormControl,
   FormLabel,
@@ -27,6 +28,7 @@ export default function NewAccount() {
   const [focus, setFocus] = useState(false)
 
   const toast = useToast()
+  const navigate=useNavigate()
 
   const [user, setUser] = useState(initialState)
   let nam, val
