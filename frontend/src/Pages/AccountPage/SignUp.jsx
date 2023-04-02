@@ -137,7 +137,7 @@ export default function NewAccount() {
         <Button onClick={handleClick} isLoading={focus} loadingText="Submitting" colorScheme="pink" variant="outline" style={{marginTop:'20px'}}>Sign Up</Button>
     <br />
     <Link>
-    Already logged in ? <Link to='/login' style={{color:'blue'}}>Login</Link>
+    Already registerd? <Link to='/login' style={{color:'blue'}}>Login</Link>
     </Link>
     <br />
   
