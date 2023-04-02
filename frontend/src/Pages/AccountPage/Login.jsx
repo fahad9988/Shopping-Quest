@@ -18,7 +18,7 @@ import { useState } from 'react'
 import { useContext } from "react";
 
 
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const intialState={
   email:"",
   password:""
@@ -30,7 +30,7 @@ export const Login = () => {
   const [user, setUser] = useState(intialState)
     const[load,setLoad]=useState(false)
     const toast =useToast()
-
+const navigate=useNavigate()
     let nam,val
     const handleInputChange = (e) => {
       e.preventDefault()
@@ -42,20 +42,41 @@ export const Login = () => {
     }
 
     const handleClic=()=>{
+      if(user.email===""|| user.password==""){
+        alert("Please Fill all the inputs")
+        return
+      }
       setLoad(true)
       axios.post('https://navy-blue-colt-slip.cyclic.app/user/login',user).then(res=>{
-
+        console.log(res.data)
+      if(res.data.token){
       toast({
         title: 'Login Succesfull.',
-     
+        position: 'top',
         status: 'success',
         duration: 4000,
         isClosable: true,
       })
       setLoad(false)
       localStorage.setItem('token',JSON.stringify(res.data.token))
+      localStorage.setItem('name',JSON.stringify(res.data.user_details.name))
+
+      
+    }else{
+       toast({
+          title: 'Login Failed.',
+          position: 'top',
+          description:`${res.data.msg}`,
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+        setLoad(false)
+
+    }
 
       }).catch(err=>{
+        console.log(err)
         toast({
           title: 'Login Failed.',
           description:`${err.response.data.msg}`,
@@ -94,8 +115,17 @@ export const Login = () => {
      
         <Button onClick={handleClic} isLoading={load} loadingText="Submitting" colorScheme="pink" variant="outline" style={{marginTop:'20px'}}>Sign In</Button>
     <br />
+    <br />
     
-    </FormControl>
+    <Link>If not registerd ,<Link style={{color:"blue"}} to={'/signup'}>Register</Link></Link>
+
+    <br />
+    <br />
+    <Link>
+    Admin <Link to='/loginadmin' style={{color:"blue"}}>Click Here to Login</Link>
+    </Link>
+
+        </FormControl>
         </div>
       </div>
   
