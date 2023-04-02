@@ -1,14 +1,76 @@
 {
   "Cart": [
     {
-      "id": "6423e5fefbbc31a2d3992064",
-      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/21197968/2023/1/10/a79d5191-422f-41b8-97f5-a4d21261f4091673327136520-Louis-Philippe-Sport-Men-Shirts-4351673327135961-1.jpg",
-      "brand": "Louis Philippe Sport",
-      "product": "Men Pure Cotton Slim Fit Shirt",
-      "price": 1319,
-      "strike": 2199,
+      "id": "6423e5fefbbc31a2d3992038",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11363700/2020/3/2/ec73c88e-e651-4983-aaf1-1f21f7d877551583149435427-WROGN-Men-Tshirts-1401583149433605-1.jpg",
+      "brand": "WROGN",
+      "product": "Solid Polo Collar T-shirt",
+      "price": 839,
+      "strike": 1399,
       "discount": "40% OFF",
-      "quantity": 2
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d3992026",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/21617996/2023/1/19/5c8eb4a7-50ef-46a3-9a12-5069559600fb1674135860723BlackInfluencePrintOversizeDropShoulderShirt1.jpg",
+      "brand": "Powerlook",
+      "product": "Printed Casual Shirt",
+      "price": 949,
+      "strike": 1049,
+      "discount": " 100 OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d3991fe8",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1858747/2017/8/28/11503925666468-Roadster-Men-Black--Red-Checked-Casual-Shirt-6171503925666405-1.jpg",
+      "brand": "Roadster",
+      "product": "Men Casual Shirt",
+      "price": 399,
+      "strike": 1299,
+      "discount": " 900 OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d3992034",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/19694418/2022/9/26/4cb24ca9-9749-4e84-8925-e00a41852fcc1664187612034HIGHLANDERMenWhiteSlimFitCasualShirt1.jpg",
+      "brand": "HIGHLANDER",
+      "product": "Slim Fit Casual Shirt",
+      "price": 599,
+      "strike": 1999,
+      "discount": "70% OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d399200c",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/12051664/2020/9/4/f4ab7f55-e17c-48c1-bde4-641b28ac210b1599214142787-HERENOW-Men-Shirts-4071599214140238-1.jpg",
+      "brand": "HERE&NOW",
+      "product": "Regular Fit Checked Shirt",
+      "price": 965,
+      "strike": 2299,
+      "discount": "58% OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d3992055",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11999496/2020/7/9/28147c07-9cec-4754-9226-ade4fc7908631594292867204-HRX-by-Hrithik-Roshan-Men-Tshirts-1821594292865503-1.jpg",
+      "brand": "HRX by Hrithik Roshan",
+      "product": "Running Bio-Wash Tshirt",
+      "price": 399,
+      "strike": 699,
+      "discount": " 300 OFF",
+      "quantity": 1
+    }
+  ],
+  "SaveLater": [
+    {
+      "id": "6423e5fefbbc31a2d399201f",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/20460798/2022/11/16/d4f58678-18da-4866-b3ce-733cff215ec61668593652356-Raymond-Men-Blazers-8321668593651747-1.jpg",
+      "brand": "Raymond",
+      "product": "Men Single-Breasted Blazer",
+      "price": 5624,
+      "strike": 7499,
+      "discount": "25% OFF",
+      "quantity": 1
     },
     {
       "id": "6423e5fefbbc31a2d399202d",
@@ -18,8 +80,47 @@
       "price": 649,
       "strike": 999,
       "discount": "35% OFF",
-      "quantity": 2
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d3991ffe",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/18762136/2022/6/29/6fbf52c7-6438-491c-92ee-4da69a7939971656501567738-Louis-Philippe-Sport-Men-Teal-Polo-Collar-Slim-Fit-T-shirt-4-1.jpg",
+      "brand": "Louis Philippe Sport",
+      "product": "Men Polo Collar T-shirt",
+      "price": 766,
+      "strike": 1299,
+      "discount": "41% OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d399204c",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/18973508/2022/11/2/11408afd-2e79-4d3f-a37e-a8ae5ce7305c1667371473265-Levis-Men-Navy-Blue-Denim-Jacket-4691667371472318-1.jpg",
+      "brand": "Levis",
+      "product": "Men Denim Jacket",
+      "price": 2799,
+      "strike": 5599,
+      "discount": "50% OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d399203e",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1987412/2022/11/21/cfd16572-9e2c-420e-8399-55568ad947f61669009324996-HRX-by-Hrithik-Roshan-Men-Black-Raglan-Sleeved-T-shirt-71166-1.jpg",
+      "brand": "HRX by Hrithik Roshan",
+      "product": "Raglan Sleeved T-shirt",
+      "price": 399,
+      "strike": 899,
+      "discount": " 500 OFF",
+      "quantity": 1
+    },
+    {
+      "id": "6423e5fefbbc31a2d399201a",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/18488958/2022/6/2/78d32f4b-aaf8-44b5-91b3-79f9ce1f8dfc1654163518937TrousersAllenSollyMenShirtsAllenSollyMenShirtsAllenSollyMenS1.jpg",
+      "brand": "Roadster",
+      "product": "Men Printed Cotton T-shirt",
+      "price": 323,
+      "strike": 599,
+      "discount": "46% OFF",
+      "quantity": 1
     }
-  ],
-  "SaveLater": []
+  ]
 }
