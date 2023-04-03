@@ -1,7 +1,7 @@
 <h1>Shopping Quest</h1>
 
 <h2>Description</h2>
-<p>This is the clone of Amazon website, world's largest e-commerce website which deals with the sales of various products like clothing products, electronics etc. This is an collaborative project completed in a span of 5 days.</p>
+<p>This is the clone of Amazon website, world's largest e-commerce website which deals with the sales of various products like clothing products, electronics etc. This is a collaborative project completed in a span of 5 days.</p>
 
 <h2>Homepage</h2>
 <img src="https://i.ibb.co/PQ8jBfL/Screenshot-9996.png" alt="Fashionista" border="0">
