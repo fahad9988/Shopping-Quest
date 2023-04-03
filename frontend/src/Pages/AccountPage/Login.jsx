@@ -19,6 +19,7 @@ import { useContext } from "react";
 
 
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthrizeContext } from '../../Context/AuthContextProvider'
 const intialState={
   email:"",
   password:""
@@ -31,6 +32,7 @@ export const Login = () => {
     const[load,setLoad]=useState(false)
     const toast =useToast()
 const navigate=useNavigate()
+let {isAuth,setIsAuth}= useContext(AuthrizeContext);
     let nam,val
     const handleInputChange = (e) => {
       e.preventDefault()
@@ -60,6 +62,7 @@ const navigate=useNavigate()
       setLoad(false)
       localStorage.setItem('token',JSON.stringify(res.data.token))
       localStorage.setItem('name',JSON.stringify(res.data.user_details.name))
+      setIsAuth(true)
       navigate("/");
 
       

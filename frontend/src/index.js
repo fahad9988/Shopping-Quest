@@ -10,10 +10,12 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { ChakraProvider } from "@chakra-ui/react";
 import AuthContextProvider from "./../src/Pages/LoginAdmin/Context/AuthContext";
+import  AuthrizeContext  from "./Context/AuthContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+<AuthrizeContext>
     <ChakraProvider>
       <AuthContextProvider>
         <Provider store={store}>
@@ -21,6 +23,7 @@ root.render(
         </Provider>
       </AuthContextProvider>
     </ChakraProvider>
+    </AuthrizeContext>
   </BrowserRouter>
 );
 

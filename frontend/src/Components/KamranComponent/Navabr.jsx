@@ -1,5 +1,5 @@
 import { Box,Image, Input, InputGroup, InputLeftAddon, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import {SearchIcon,HamburgerIcon} from "@chakra-ui/icons"
 
 import {
@@ -12,15 +12,39 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
+    useToast
   
   } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import style from "../../Style/Navbar.module.css"
+import { AuthrizeContext } from '../../Context/AuthContextProvider'
 const Navabr = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement, setPlacement] = React.useState('left');
+    let {isAuth,setIsAuth}= useContext(AuthrizeContext);
+    const [load,setLoad]=useState(false)
+    const toast =useToast()
+    const name =JSON.parse(localStorage.getItem('name'))
+    const token = JSON.parse(localStorage.getItem('token'))
+    const  toggleAuth=()=>{
+      setLoad(true)
+      setTimeout(()=>{
+        toast({
+          title: 'Log Out Succesful.',
+          
+          status: 'success',
+          duration: 4000,
+          isClosable: true,
+        })
+        localStorage.removeItem('token')
+        localStorage.removeItem('name')
+    setIsAuth(!isAuth)
 
-    
+      },1000)
+      
+       
+  }
+ 
   return (
     <div>
       <Box className={style.navbar}>
@@ -35,14 +59,14 @@ const Navabr = () => {
     <Input className={style.input} type='text' placeholder='Search Amazon.in'  backgroundColor="white" border="4px solid #f4b666" />
   <SearchIcon className={style.search}/>
   </InputGroup>
-  {false?<Text className={style.login} >
-    { `Hi!`}
+  {isAuth?<Text className={style.login} >
+    { `Hi! ${name}`}
       </Text>:
        <Link to="/login" className={style.login} >
        Hello sign in
         Account & List
         </Link>}
-     {false?<Text  className={style.login} _hover={{textDecoration:"underline",cursor:"pointer"}}>Logout</Text>:<Link to="/return" className={style.login}>Return & orders</Link>}
+     {isAuth?<Text onClick={toggleAuth}  className={style.login} _hover={{textDecoration:"underline",cursor:"pointer"}}>Logout</Text>:<Link to="/return" className={style.login}>Return & orders</Link>}
       
       <Link className={style.login} to="/cart">Cart</Link>
       </Box>
