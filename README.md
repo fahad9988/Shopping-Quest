@@ -6,17 +6,16 @@
 <h2>Homepage</h2>
 <img src="https://i.ibb.co/PQ8jBfL/Screenshot-9996.png" alt="Fashionista" border="0">
 <h2>Login/Signup Page</h2>
-<img src="https://i.ibb.co/L67D2JQ/Screenshot-7795.png" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/9gMqLnr/Screenshot-9997.png" alt="Fashionista" border="0">
 <h2>Products Page</h2>
-<img src="https://i.ibb.co/F6jzrxB/Screenshot-7796.png" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/4JG7Z8F/Screenshot-9998.png" alt="Fashionista" border="0">
 <h2>Single Product Page</h2>
-<img src="https://i.ibb.co/gtshYhS/Screenshot-7797.png" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/G574p8c/Screenshot-9999.png" alt="Fashionista" border="0">
 <h2>Cart Page</h2>
-<img src="https://i.ibb.co/TtfwZ4c/Screenshot-7798.png" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/0tx6Dm9/Screenshot-10000.png" alt="Fashionista" border="0">
 <h2>Checkout Page</h2>
-<img src="https://i.ibb.co/wdkzM2Q/Screenshot-7800.png" alt="Fashionista" border="0">
-<h2>Admin Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/BZwk33s/Screenshot-10001.png" alt="Fashionista" border="0">
+
 
 
 <h2>Tech Stacks used in this project</h2>
