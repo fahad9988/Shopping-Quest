@@ -46,7 +46,7 @@ dispatch(getSaveLater());
    
 
     const handleCheckout=()=>{
-      axios.post(`https://good-red-salmon-robe.cyclic.app/api/stripe/create-checkout-session`,{
+      axios.post(`https://troubled-donkey.cyclic.app/api/stripe/create-checkout-session`,{
         cartData
       }).then((res)=>{
         if(res.data.url){
